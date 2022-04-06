@@ -7,6 +7,11 @@ namespace BigasTools{
     {
         private static Dictionary<string, GameObject> cachedObjects = new Dictionary<string, GameObject>();
 
+        /// <summary>
+        /// Find a object by the tag name and cache it.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static GameObject FindObject(string name){
             GameObject obj;
             if(cachedObjects.TryGetValue(name, out obj)){
@@ -20,6 +25,9 @@ namespace BigasTools{
             }
             return null;
         }
+        /// <summary>
+        /// Dispose all the cached data, useful for reloadings.
+        /// </summary>
         public static void DisposeCache(){
             cachedObjects.Clear();
         }

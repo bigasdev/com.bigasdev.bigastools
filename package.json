@@ -1,6 +1,6 @@
 {
   "name": "com.bigasdev.bigastools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Bigas Tools",
   "description": "Tools with my classes for game development",
   "unity": "2020.3",

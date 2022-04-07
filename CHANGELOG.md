@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.1...v1.0.2) (2022-04-07)
+
+
+### Bug Fixes
+
+* start of the view creator tool ([cd184f0](https://github.com/bigasdev/com.bigasdev.bigastools/commit/cd184f0d00f585827f1a3cefb036c4c7fe52bdeb))
+
 ## [1.0.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.0...v1.0.1) (2022-04-06)
 
 

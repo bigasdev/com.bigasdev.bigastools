@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.3...v1.0.4) (2022-04-08)
+
+
+### Bug Fixes
+
+* meta files added back ([7211b0c](https://github.com/bigasdev/com.bigasdev.bigastools/commit/7211b0ce6bcd9d613f4fad691a8a1c6b60181d39))
+
 ## [1.0.3](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.2...v1.0.3) (2022-04-08)
 
 

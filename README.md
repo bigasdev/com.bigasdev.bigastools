@@ -1,5 +1,7 @@
 [![Made for Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=plastic&logo=unity)](https://unity3d.com)
 ![Stars](https://img.shields.io/github/stars/bigasdev/Bigas-Tools.svg?style=plastic)
+[![wakatime](https://wakatime.com/badge/user/689ea0cf-7a60-428a-9385-c2713d3911fd/project/d135432c-a8a0-4cff-bcbf-49556f1efb97.svg?style=plastic)](https://wakatime.com/badge/user/689ea0cf-7a60-428a-9385-c2713d3911fd/project/d135432c-a8a0-4cff-bcbf-49556f1efb97)
+[![openupm](https://img.shields.io/npm/v/com.bigasdev.bigastools?style=plastic&label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.bigasdev.bigastools/)
 
 The tools i usually use for all of my game development with unity.
 

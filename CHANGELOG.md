@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.4...v1.0.5) (2022-04-12)
+
+
+### Bug Fixes
+
+* finally release ([40c5911](https://github.com/bigasdev/com.bigasdev.bigastools/commit/40c59117c238e9e08364d28279dc8fdaeaa869e6))
+
 ## [1.0.4](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.3...v1.0.4) (2022-04-08)
 
 

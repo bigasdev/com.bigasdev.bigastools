@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.5...v1.1.0) (2022-04-13)
+
+
+### Features
+
+* experimental folder with dynamic pool ([53008f1](https://github.com/bigasdev/com.bigasdev.bigastools/commit/53008f193fb63cf6260139fc5107b2b72c43e70a))
+
 ## [1.0.5](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.4...v1.0.5) (2022-04-12)
 
 

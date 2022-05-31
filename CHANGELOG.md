@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.1.0...v1.1.1) (2022-05-31)
+
+
+### Bug Fixes
+
+* added the no clip hero ([18270cc](https://github.com/bigasdev/com.bigasdev.bigastools/commit/18270cc07ae29184a69b63130eb2f6e499b67b8b))
+
 # [1.1.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.0.5...v1.1.0) (2022-04-13)
 
 

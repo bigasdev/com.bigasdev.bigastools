@@ -6,7 +6,7 @@ using System.Linq;
 //
 // This class is responsible for a dynamic pool, its a concept where you can spawn any object you want and save it in the dictionary
 //
-namespace BigasTools{
+namespace BigasTools.Dynamic{
     public class DynamicPool : MonoBehaviour
     {
         private static DynamicPool instance;
@@ -17,43 +17,45 @@ namespace BigasTools{
             }
         }
         Dictionary<string, List<GameObject>> cachedObjects = new Dictionary<string, List<GameObject>>();
+        public string pathFolder = "Prefabs/Particles/";
 
         //
         // Here you need to create your logic to load the object from the resources folder
         //
         public virtual GameObject GetObj(string args){
-            return Resources.Load<GameObject>("Prefabs/Particles/" + args);
+            return Resources.Load<GameObject>(pathFolder + args);
+        }
+        // ? Metamorphosis to accept objects with a different path too.
+        public virtual GameObject GetObj(string args, string path){
+            return Resources.Load<GameObject>(path + args);
         }
         //
         // The core for the dynamic pool, here we'll try to get the gameobject inside the list from the cache.
         //
-        public virtual GameObject GetFromPool(string args, Vector3 pos){
+        public virtual GameObject GetFromPool(string args, Vector3 pos, string path = null){
             for (int i = 0; i < cachedObjects.Count; i++)
             {
                 var obj = cachedObjects.ElementAt(i);
-                Debug.Log(obj);
                 if(obj.Key == args){
                     if(obj.Value.Count <= 0)break;
-                    Debug.Log(obj.Value.Count);
                     for (int u = 0; u < obj.Value.Count; u++)
                     {
                         if(!obj.Value[u].activeSelf){
                             var realObj = obj.Value[u];
-                            Debug.Log(realObj + "....");
                             realObj.SetActive(true);
                             realObj.transform.position = pos;
                             obj.Value.Remove(realObj);
                             return realObj;
                         }
                     }
-                    var prefab = GetObj(args);
+                    var prefab = path == null ? GetObj(args) : GetObj(args, path);
                     var prefabIns = Instantiate(prefab, this.transform);
                     prefabIns.transform.position = pos;
                     prefabIns.AddComponent<DynamicChild>().dynamicPoolName = args;
                     return prefabIns;
                 }
             }
-            var realPrefab = GetObj(args);
+            var realPrefab = path == null ? GetObj(args) : GetObj(args, path);
             var prefabInstance = Instantiate(realPrefab, this.transform);
             prefabInstance.transform.position = pos;
             prefabInstance.AddComponent<DynamicChild>().dynamicPoolName = args;

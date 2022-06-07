@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BigasTools{
+namespace BigasTools.Dynamic{
     public class DynamicChild : MonoBehaviour
     {
         //

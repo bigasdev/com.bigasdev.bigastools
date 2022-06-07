@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.1.1...v1.2.0) (2022-06-07)
+
+
+### Features
+
+* Dynamic and Sprite2D finished ([b105883](https://github.com/bigasdev/com.bigasdev.bigastools/commit/b10588330aaa2ebe33f630d9776c0ee417f3ec84))
+
 ## [1.1.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.1.0...v1.1.1) (2022-05-31)
 
 

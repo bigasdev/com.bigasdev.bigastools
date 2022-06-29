@@ -22,7 +22,7 @@ namespace BigasTools{
         /// </summary>
         /// <param name="name"></param>
         public void PlaySound(string name){
-            var audio = ResourceController.GetAudio(name);
+            var audio = ResourceController.Instance.GetObject<AudioClip>(name);
             if(audio == null)return;
             sfxSource.PlayOneShot(audio);
         }

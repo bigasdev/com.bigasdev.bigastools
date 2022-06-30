@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.3.0...v1.3.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* Added the modal handler and UiExample ([b1a5f5b](https://github.com/bigasdev/com.bigasdev.bigastools/commit/b1a5f5b869cba3d514479d028d470eee34f56d32))
+
 # [1.3.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.2.0...v1.3.0) (2022-06-29)
 
 

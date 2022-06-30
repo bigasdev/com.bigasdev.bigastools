@@ -20,41 +20,26 @@ namespace BigasTools{
             }
             catch (System.Exception)
             {
-                BDebug.Log($"No '{name}' reference found", "Resource Controller", Color.red);
+                BDebug.Log($"No '{name}' reference found", "Resource Controller", Color.red, true);
                 return null;
             }
         }
         public T GetObject<T>(string name, string path = "Default") where T:class{
             var p = GetRef(path);
-            if(p == null)return null;
+            if(p == null){
+                BDebug.Log($"Are you sure the path '{path}' exists?", "Resource Controller", Color.red, true);
+                return null;
+            }
             try
             {
                 var fullPath = p.directory + "/" +name;
-                BDebug.Log($"Trying to load '{fullPath}'", "Resource Controller", Color.red);
+                BDebug.Log($"Trying to load '{fullPath}'", "Resource Controller", Color.red, true);
                 var o = Resources.Load(fullPath) as T;
-                Debug.Log(o);
                 return o as T;
             }
             catch (System.Exception)
             {
-                BDebug.Log($"Are you sure '{name}' has this component?", "Resource Controller", Color.red);
-                throw;
-            }
-        }
-        public T GetObjectComponent<T>(string name, string path = "Default") where T:Object{
-            var p = GetRef(path);
-            if(p == null)return null;
-            try
-            {
-                var fullPath = p.directory + "/" +name;
-                BDebug.Log($"Trying to load '{fullPath}'", "Resource Controller", Color.red);
-                var o = Resources.Load(fullPath) as T;
-                Debug.Log(o);
-                return o as T;
-            }
-            catch (System.Exception)
-            {
-                BDebug.Log($"Are you sure '{name}' has this component?", "Resource Controller", Color.red);
+                BDebug.Log($"Are you sure '{name}' has this component?", "Resource Controller", Color.red, true);
                 throw;
             }
         }

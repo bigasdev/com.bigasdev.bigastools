@@ -81,19 +81,19 @@ namespace BigasTools.InputSystem{
                 case InputKeys.PAUSE:
                     return currentGamePad.startButton.wasPressedThisFrame;
                 case InputKeys.SELECT:
-                    return currentGamePad.aButton.wasPressedThisFrame;
+                    return currentGamePad.selectButton.wasPressedThisFrame;
                 case InputKeys.LEFT_STICK:
-                    return currentGamePad.bButton.wasPressedThisFrame;
+                    return currentGamePad.leftStickButton.wasPressedThisFrame;
                 case InputKeys.RIGHT_STICK:
-                    return currentGamePad.xButton.wasPressedThisFrame;
+                    return currentGamePad.rightStickButton.wasPressedThisFrame;
                 case InputKeys.LEFT_SHOULDER:
-                    return currentGamePad.yButton.wasPressedThisFrame;
+                    return currentGamePad.leftShoulder.wasPressedThisFrame;
                 case InputKeys.LEFT_TRIGGER:
-                    return currentGamePad.startButton.wasPressedThisFrame;
+                    return currentGamePad.leftTrigger.wasPressedThisFrame;
                 case InputKeys.RIGHT_SHOULDER:
-                    return currentGamePad.yButton.wasPressedThisFrame;
+                    return currentGamePad.rightShoulder.wasPressedThisFrame;
                 case InputKeys.RIGHT_TRIGGER:
-                    return currentGamePad.startButton.wasPressedThisFrame;
+                    return currentGamePad.rightTrigger.wasPressedThisFrame;
             }
             return false;
         }
@@ -111,19 +111,19 @@ namespace BigasTools.InputSystem{
                 case InputKeys.PAUSE:
                     return currentGamePad.startButton.isPressed;
                 case InputKeys.SELECT:
-                    return currentGamePad.aButton.isPressed;
+                    return currentGamePad.selectButton.isPressed;
                 case InputKeys.LEFT_STICK:
-                    return currentGamePad.bButton.isPressed;
+                    return currentGamePad.leftStickButton.isPressed;
                 case InputKeys.RIGHT_STICK:
-                    return currentGamePad.xButton.isPressed;
+                    return currentGamePad.rightStickButton.isPressed;
                 case InputKeys.LEFT_SHOULDER:
-                    return currentGamePad.yButton.isPressed;
+                    return currentGamePad.leftShoulder.isPressed;
                 case InputKeys.LEFT_TRIGGER:
-                    return currentGamePad.startButton.isPressed;
+                    return currentGamePad.leftTrigger.isPressed;
                 case InputKeys.RIGHT_SHOULDER:
-                    return currentGamePad.yButton.isPressed;
+                    return currentGamePad.rightShoulder.isPressed;
                 case InputKeys.RIGHT_TRIGGER:
-                    return currentGamePad.startButton.isPressed;
+                    return currentGamePad.rightTrigger.isPressed;
                     
             }
             return false;

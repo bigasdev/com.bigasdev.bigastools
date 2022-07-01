@@ -26,6 +26,10 @@ namespace BigasTools{
             if(audio == null)return;
             sfxSource.PlayOneShot(audio);
         }
+        public void PlaySound(AudioClip audioClip){
+            if(audioClip == null || sfxSource == null)return;
+            sfxSource.PlayOneShot(audioClip);
+        }
         /// <summary>
         /// Stop the current playing sound
         /// </summary>

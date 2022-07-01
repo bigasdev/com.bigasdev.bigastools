@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.3.1...v1.4.0) (2022-07-01)
+
+
+### Features
+
+* New World Space UI System + Ultimate Font ([6f544a3](https://github.com/bigasdev/com.bigasdev.bigastools/commit/6f544a30ca97b4b2cb50464ee347ef3f8ee98223))
+
 ## [1.3.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.3.0...v1.3.1) (2022-06-30)
 
 

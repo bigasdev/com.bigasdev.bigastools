@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.4.0...v1.4.1) (2022-07-02)
+
+
+### Bug Fixes
+
+* create tag component + start of view creator ([9115296](https://github.com/bigasdev/com.bigasdev.bigastools/commit/91152967094a75651d41d798dc5a4e7298829afc))
+
 # [1.4.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.3.1...v1.4.0) (2022-07-01)
 
 

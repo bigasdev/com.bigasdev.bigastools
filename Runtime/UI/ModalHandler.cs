@@ -83,8 +83,15 @@ public class ModalHandler : MonoBehaviour
         modals[index].OnInteract();
     }
     public void DeselectAll(){
-        foreach(var m in modals){
-            m.OnDeselect();
+        try
+        {
+            foreach(var m in modals){
+                m.OnDeselect();
+            }
+        }
+        catch (System.Exception)
+        {
+            
         }
     }
 }

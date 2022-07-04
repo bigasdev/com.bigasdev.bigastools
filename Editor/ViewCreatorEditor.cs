@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.UI;
+using BigasTools.UI;
 
 namespace BigasTools.Editor{
     public class CreateViewEditor : EditorWindow
@@ -29,16 +30,43 @@ namespace BigasTools.Editor{
                 OnComponentAdd();
             }
             foreach (var item in components)
-            {
-                string name = "";
-                bool isModal = false;
-                Object sprite = null;
-    
-                name = EditorGUILayout.TextField("Child Name", name);
-                isModal = EditorGUILayout.Toggle("Is Modal Object", isModal);
-                sprite = EditorGUILayout.ObjectField("Sprite", sprite, typeof(Sprite), true);
+            {    
+                item.name = EditorGUILayout.TextField("Child Name", item.name);
+                item.isModal = EditorGUILayout.Toggle("Is Modal Object", item.isModal);
+                item.sprite = EditorGUILayout.ObjectField("Sprite", item.sprite, typeof(Sprite), true);
                 if(GUILayout.Button("Remove component")){
-                    components.Remove(item);
+                    try
+                    {
+                        components.Remove(item);
+                    }
+                    catch (System.Exception)
+                    {
+
+                    }
+                }
+            }
+            if(GUILayout.Button("Create View")){
+                var obj = new GameObject();
+
+                obj.AddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+                obj.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                obj.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1920,1080);
+                obj.GetComponent<CanvasScaler>().screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
+                obj.AddComponent<GraphicRaycaster>();
+                obj.name = viewName;
+
+                if(hasModal)obj.AddComponent<ModalHandler>();
+
+                foreach (var item in components)
+                {
+                    var o = new GameObject();
+
+                    o.name = item.name;
+                    if(item.isModal)o.AddComponent<ModalObject>();
+                    if(item.sprite!=null){
+                        o.AddComponent<Image>().sprite = item.sprite as Sprite;
+                    }
+                    o.transform.SetParent(obj.transform);
                 }
             }
         }
@@ -49,6 +77,8 @@ namespace BigasTools.Editor{
     }
     [System.Serializable]
     public class CreateViewObject{
-
+        public string name;
+        public bool isModal;
+        public Object sprite;
     }
 }

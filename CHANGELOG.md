@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.4.1...v1.4.2) (2022-07-04)
+
+
+### Bug Fixes
+
+* base of the viewcreator finished ([d05de90](https://github.com/bigasdev/com.bigasdev.bigastools/commit/d05de90f0712548510f276db323341d1476ea973))
+
 ## [1.4.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.4.0...v1.4.1) (2022-07-02)
 
 

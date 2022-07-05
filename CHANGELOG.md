@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.4.2...v1.5.0) (2022-07-05)
+
+
+### Features
+
+* Finished the entity skeleton + editor ([a580582](https://github.com/bigasdev/com.bigasdev.bigastools/commit/a580582ba7bef255efb7d4d892c59d83b20f17ad))
+
 ## [1.4.2](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.4.1...v1.4.2) (2022-07-04)
 
 

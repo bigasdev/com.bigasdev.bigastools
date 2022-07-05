@@ -12,8 +12,9 @@ namespace BigasTools{
                 return instance;
             }
         }
-        [SerializeField] ResourceReference[] refs = new ResourceReference[1]{
-            new ResourceReference("Default", "Prefabs")
+        [SerializeField] ResourceReference[] refs = new ResourceReference[2]{
+            new ResourceReference("Default", "Prefabs"),
+            new ResourceReference("UI", "Prefabs/UI")
         };
         ResourceReference GetRef(string name){
             try

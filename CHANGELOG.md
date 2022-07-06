@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.5.0...v1.5.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* fixed the editor assembly definition ([b461ff7](https://github.com/bigasdev/com.bigasdev.bigastools/commit/b461ff74a015b625a19294c1bd00bcac7f19a72f))
+
 # [1.5.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.4.2...v1.5.0) (2022-07-05)
 
 

@@ -4,13 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-// To get access to the selection window: https://github.com/vexe/VFW
-
-/*
- * This property drawer uses a selection window to make
- * it easier to select a key. Unity's default enum popup creates a 
- * a very long list making it difficult to navigate and pick a key.
- * */
+using BigasTools.Editor;
 [CustomPropertyDrawer(typeof(KeyCode))]
 public class KeyCodeDrawer : PropertyDrawer
 {
@@ -97,12 +91,17 @@ public class KeyCodeDrawer : PropertyDrawer
         // Get all the keycodes
         var keyCodes = Enum.GetValues(typeof(KeyCode));
         var keys = new KeyCode[keyCodes.Length];
+        var drawer = new DrawerOption[keyCodes.Length];
+
 
         // Set all the keycode values in the array in order to feed it into the selection window.
         int i = 0;
         foreach (KeyCode k in keyCodes) {
+            drawer[i] = new DrawerOption<KeyCode>(()=>keys, "Keys", key => {_selectedKey = key;});
             keys[i++] = k;
         }
+
+        DrawerMenu.ShowWindow(drawer);
 
         // Display the selection window to pick a keycode.
         /*SelectionWindow.Show(new Tab<KeyCode>(

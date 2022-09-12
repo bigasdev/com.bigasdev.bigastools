@@ -26,6 +26,7 @@ namespace BigasTools.Editor{
                 options[i].Refresh(i);
                 if(GUILayout.Button(options[i].name, EditorStyles.toolbarButton)){
                     options[i].onGUI();
+                    options[i].Update();
                 };
                 GUILayout.FlexibleSpace();
             }
@@ -38,26 +39,34 @@ namespace BigasTools.Editor{
 
         public abstract void onGUI();
         public abstract void Refresh(int i);
+        public abstract void Update();
     }
     [System.Serializable]
     public class DrawerOption<T> : DrawerOption{
         private readonly Func<T[]> getValues;
         private readonly Action<T> setValue;
+        private readonly SerializedProperty serializedProperty;
         private T[] values;
         private T value;
 
-        public DrawerOption(Func<T[]> getValues, string name, Action<T> setValue)
+        public DrawerOption(Func<T[]> getValues, string name, Action<T> setValue, SerializedProperty serializedProperty)
         {
             this.name = name;
             this.getValues = getValues;
             this.setValue = setValue;
+            this.serializedProperty = serializedProperty;
         }
 
         public override void onGUI()
         {
             if(setValue != null){
-                setValue(value);
+                onValueGUI(value);
+                //setValue(value);
             }
+        }
+        public override void Update()
+        {
+            //Debug.Log(serializedProperty.arraySize);
         }
         void onValueGUI(T val){
             setValue(val);

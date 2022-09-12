@@ -131,16 +131,12 @@ namespace BigasTools.InputSystem{
     }
     [System.Serializable]
     public class InputData{
-        public List<InputProfile> profile;
+        public InputProfile[] profile;
         public InputData(){
-            var first = new InputProfile("Interaction", KeyCode.E, InputKeys.A);
-            var second = new InputProfile("Pause", KeyCode.Escape, InputKeys.PAUSE);
-            var third = new InputProfile("Info", KeyCode.CapsLock, InputKeys.SELECT);
-
-            profile = new List<InputProfile>();
-            profile.Add(first);
-            profile.Add(second);
-            profile.Add(third);
+            profile = new InputProfile[3];
+            profile[0] = new InputProfile("Interaction", KeyCode.E, InputKeys.A);
+            profile[1] = new InputProfile("Pause", KeyCode.Escape, InputKeys.PAUSE);
+            profile[2] = new InputProfile("Info", KeyCode.CapsLock, InputKeys.SELECT);
         }
     }
     [System.Serializable]

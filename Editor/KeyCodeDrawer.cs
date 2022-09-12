@@ -6,6 +6,7 @@ using UnityEditor;
 
 using BigasTools.Editor;
 [CustomPropertyDrawer(typeof(KeyCode))]
+[CanEditMultipleObjects]
 public class KeyCodeDrawer : PropertyDrawer
 {
     private KeyCode _selectedKey = KeyCode.None;
@@ -79,7 +80,7 @@ public class KeyCodeDrawer : PropertyDrawer
             }
 
             // Set the index which in turn sets the correct key code enum.
-            //property.enumValueIndex = index;
+            property.enumValueIndex = index;
 
             _bChangeKey = false;
             return;
@@ -88,9 +89,6 @@ public class KeyCodeDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
     public void Test(){
-        Debug.Log(p.enumValueIndex);
-        //p.enumValueIndex = 4;
-        Debug.Log(p.enumValueIndex);
     }
 
     // Display a menu to select key codes.
@@ -102,14 +100,13 @@ public class KeyCodeDrawer : PropertyDrawer
         var drawer = new DrawerOption[keyCodes.Length];
 
 
+
         // Set all the keycode values in the array in order to feed it into the selection window.
         int i = 0;
         foreach (KeyCode k in keyCodes) {
             drawer[i] = new DrawerOption<KeyCode>(()=>keys, k.ToString(), key => {
-                Debug.Log(p.enumValueIndex);
-                Debug.Log(key);
-                Test();
-                _selectedKey = key;});
+                _selectedKey = key;
+                p.enumValueIndex = 4;}, p);
             keys[i++] = k;
         }
 

@@ -13,7 +13,7 @@ namespace BigasTools.Editor{
         Object test;
         List<CreateViewObject> components = new List<CreateViewObject>();
         [MenuItem("Bigas-Tools/Create View &v")]
-        private static void ShowWindow() {
+        public static void ShowWindow() {
             var window = GetWindow<CreateViewEditor>();
             window.titleContent = new GUIContent("View creator");
             window.Show();

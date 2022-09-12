@@ -9,8 +9,6 @@ using BigasTools.Editor;
 [CanEditMultipleObjects]
 public class KeyCodeDrawer : PropertyDrawer
 {
-    private KeyCode _selectedKey = KeyCode.None;
-    private bool _bChangeKey = false;
     SerializedProperty p;
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -39,12 +37,6 @@ public class KeyCodeDrawer : PropertyDrawer
         // Get the KeyCode enum by converting the name to KeyCode.
         var propKey = (KeyCode)Enum.Parse(typeof(KeyCode), propEnumName);
 
-        // Only change the keys if they differ from the input selection and make sure
-        // not to override it with the default value.
-        if (_selectedKey != propKey && _selectedKey != KeyCode.None) {
-            _bChangeKey = true;
-        }
-
         string keyName = Enum.GetName(typeof(KeyCode), propKey);
 
         // Offset the button from the label.
@@ -58,7 +50,7 @@ public class KeyCodeDrawer : PropertyDrawer
 
         // Apply changes if necessary, this way, the default _selectedKey value
         // does not incorrectly override the property enum value.
-        if (_bChangeKey) {
+        /*if (_bChangeKey) {
 
             // Since we cannot set the enum value of the serialized property directly,
             // we need to get the enumValueIndex associated to the KeyCode name.
@@ -84,7 +76,7 @@ public class KeyCodeDrawer : PropertyDrawer
 
             _bChangeKey = false;
             return;
-        }
+        }*/
 
         EditorGUI.EndProperty();
     }
@@ -105,7 +97,7 @@ public class KeyCodeDrawer : PropertyDrawer
         int i = 0;
         foreach (KeyCode k in keyCodes) {
             drawer[i] = new DrawerOption<KeyCode>(()=>keys, k.ToString(), key => {
-                _selectedKey = key;
+                //_selectedKey = key;
                 p.enumValueIndex = 4;}, p);
             keys[i++] = k;
         }

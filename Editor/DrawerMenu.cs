@@ -66,7 +66,8 @@ namespace BigasTools.Editor{
         }
         public override void Update()
         {
-            //Debug.Log(serializedProperty.arraySize);
+            serializedProperty.enumValueIndex = 14;
+            Debug.Log(serializedProperty.serializedObject.ApplyModifiedProperties());
         }
         void onValueGUI(T val){
             setValue(val);

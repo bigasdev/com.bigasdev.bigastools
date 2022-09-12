@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.5.1...v1.6.0) (2022-09-12)
+
+
+### Features
+
+* Finished the drawer menu for the keycode  ([5f4cbc2](https://github.com/bigasdev/com.bigasdev.bigastools/commit/5f4cbc2b5868b9edd8ad0c988a2e7c5d28a62d31))
+
 ## [1.5.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.5.0...v1.5.1) (2022-07-06)
 
 

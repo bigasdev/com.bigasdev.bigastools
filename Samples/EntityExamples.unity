@@ -417,7 +417,6 @@ GameObject:
   - component: {fileID: 1742347590}
   - component: {fileID: 1742347589}
   - component: {fileID: 1742347588}
-  - component: {fileID: 1742347592}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -506,29 +505,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1742347592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742347587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ce27d69e8fc57943908a4d8334575f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputData:
-    profile:
-    - inputName: Interaction
-      inputKey: 101
-      joystickKey: 0
-    - inputName: Pause
-      inputKey: 39
-      joystickKey: 4
-    - inputName: Info
-      inputKey: 13
-      joystickKey: 5
 --- !u!1 &1878767017
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,10 +638,10 @@ MonoBehaviour:
   inputData:
     profile:
     - inputName: Interaction
-      inputKey: 39
+      inputKey: 105
       joystickKey: 0
     - inputName: Pause
-      inputKey: 27
+      inputKey: 279
       joystickKey: 4
     - inputName: Info
       inputKey: 27
@@ -674,7 +650,7 @@ MonoBehaviour:
       inputKey: 39
       joystickKey: 6
     - inputName: Example1
-      inputKey: 27
+      inputKey: 39
       joystickKey: 10
     - inputName: dada
       inputKey: 39

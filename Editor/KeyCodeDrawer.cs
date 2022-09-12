@@ -98,7 +98,7 @@ public class KeyCodeDrawer : PropertyDrawer
         foreach (KeyCode k in keyCodes) {
             drawer[i] = new DrawerOption<KeyCode>(()=>keys, k.ToString(), key => {
                 //_selectedKey = key;
-                p.enumValueIndex = 4;}, p);
+                p.enumValueIndex = 4;}, p, k);
             keys[i++] = k;
         }
 

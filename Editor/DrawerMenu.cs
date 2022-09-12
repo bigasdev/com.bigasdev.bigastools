@@ -9,6 +9,7 @@ using BigasTools.UI;
 namespace BigasTools.Editor{
     public class DrawerMenu : EditorWindow
     {
+        Vector2 scrollPos;   
         static DrawerOption[] options;
         public static void ShowWindow(DrawerOption[] _keys) {
             var window = GetWindow<DrawerMenu>();
@@ -20,7 +21,8 @@ namespace BigasTools.Editor{
 
         void OnGUI()
         {
-            GUILayout.BeginHorizontal(EditorStyles.toolbar);
+            GUILayout.BeginVertical(EditorStyles.toolbar);
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(400), GUILayout.Height(500));
             for (int i = 0; i < options.Length; i++)
             {
                 options[i].Refresh(i);
@@ -30,7 +32,8 @@ namespace BigasTools.Editor{
                 };
                 GUILayout.FlexibleSpace();
             }
-
+            GUILayout.EndVertical();
+            GUILayout.EndScrollView();
         }
     }
     [System.Serializable]
@@ -48,13 +51,16 @@ namespace BigasTools.Editor{
         private readonly SerializedProperty serializedProperty;
         private T[] values;
         private T value;
+        private int selected;
+        KeyCode _selectedKey;
 
-        public DrawerOption(Func<T[]> getValues, string name, Action<T> setValue, SerializedProperty serializedProperty)
+        public DrawerOption(Func<T[]> getValues, string name, Action<T> setValue, SerializedProperty serializedProperty, KeyCode _selectedKey)
         {
             this.name = name;
             this.getValues = getValues;
             this.setValue = setValue;
             this.serializedProperty = serializedProperty;
+            this._selectedKey = _selectedKey;
         }
 
         public override void onGUI()
@@ -64,10 +70,28 @@ namespace BigasTools.Editor{
                 //setValue(value);
             }
         }
+        void GetEnumIndex(){
+            string _selectedKeyName = Enum.GetName(typeof(KeyCode), _selectedKey);
+            var keyCodes = Enum.GetValues(typeof(KeyCode));
+
+            int index = 0;
+
+            // Find the index of the selected key name.
+            foreach (string enumName in serializedProperty.enumNames) {
+
+                if (enumName == _selectedKeyName) {
+                    break;
+                }
+
+                index++;
+            }
+
+            serializedProperty.enumValueIndex = index;
+            serializedProperty.serializedObject.ApplyModifiedProperties();
+        }
         public override void Update()
         {
-            serializedProperty.enumValueIndex = 14;
-            Debug.Log(serializedProperty.serializedObject.ApplyModifiedProperties());
+            GetEnumIndex();
         }
         void onValueGUI(T val){
             setValue(val);

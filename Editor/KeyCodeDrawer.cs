@@ -19,7 +19,7 @@ public class KeyCodeDrawer : PropertyDrawer
         EditorGUI.BeginProperty(position, label, property);
 
         // Display the property name.
-        EditorGUI.LabelField(position, ObjectNames.NicifyVariableName(property.name));
+        //EditorGUI.LabelField(position, ObjectNames.NicifyVariableName(property.name));
 
         // Unity SerializedProperty has no direct way to set an enum, it uses an index value
         // which is unrelated to the KeyCode enumeration. The index value is the order of the enum

@@ -638,31 +638,31 @@ MonoBehaviour:
   inputData:
     profile:
     - inputName: Interaction
-      inputKey: 101
+      inputKey: 8
       joystickKey: 0
     - inputName: Pause
-      inputKey: 27
+      inputKey: 8
       joystickKey: 4
     - inputName: Info
-      inputKey: 301
+      inputKey: 8
       joystickKey: 5
     - inputName: Example
-      inputKey: 48
+      inputKey: 8
       joystickKey: 6
     - inputName: Example1
-      inputKey: 49
+      inputKey: 8
       joystickKey: 10
     - inputName: Example2
-      inputKey: 50
+      inputKey: 8
       joystickKey: 11
     - inputName: Example3
-      inputKey: 51
+      inputKey: 8
       joystickKey: 7
     - inputName: Example4
-      inputKey: 52
+      inputKey: 8
       joystickKey: 8
     - inputName: Example5
-      inputKey: 53
+      inputKey: 8
       joystickKey: 9
 --- !u!114 &2027691194
 MonoBehaviour:

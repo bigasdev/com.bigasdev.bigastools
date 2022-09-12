@@ -23,8 +23,8 @@ namespace BigasTools.Editor{
             GUILayout.BeginHorizontal(EditorStyles.toolbar);
             for (int i = 0; i < options.Length; i++)
             {
+                options[i].Refresh(i);
                 if(GUILayout.Button(options[i].name, EditorStyles.toolbarButton)){
-                    options[i].Refresh(i);
                     options[i].onGUI();
                 };
                 GUILayout.FlexibleSpace();
@@ -49,6 +49,7 @@ namespace BigasTools.Editor{
         public DrawerOption(Func<T[]> getValues, string name, Action<T> setValue)
         {
             this.name = name;
+            this.getValues = getValues;
             this.setValue = setValue;
         }
 
@@ -64,7 +65,6 @@ namespace BigasTools.Editor{
         public override void Refresh(int i){
             values = getValues();
             value = values[i];
-            Debug.Log(value);
         }
     }
 }

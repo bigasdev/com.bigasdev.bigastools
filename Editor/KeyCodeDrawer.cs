@@ -10,9 +10,11 @@ public class KeyCodeDrawer : PropertyDrawer
 {
     private KeyCode _selectedKey = KeyCode.None;
     private bool _bChangeKey = false;
+    SerializedProperty p;
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
+        p = property;
         EditorGUI.BeginProperty(position, label, property);
 
         // Display the property name.
@@ -77,12 +79,18 @@ public class KeyCodeDrawer : PropertyDrawer
             }
 
             // Set the index which in turn sets the correct key code enum.
-            property.enumValueIndex = index;
+            //property.enumValueIndex = index;
 
             _bChangeKey = false;
+            return;
         }
 
         EditorGUI.EndProperty();
+    }
+    public void Test(){
+        Debug.Log(p.enumValueIndex);
+        //p.enumValueIndex = 4;
+        Debug.Log(p.enumValueIndex);
     }
 
     // Display a menu to select key codes.
@@ -97,7 +105,11 @@ public class KeyCodeDrawer : PropertyDrawer
         // Set all the keycode values in the array in order to feed it into the selection window.
         int i = 0;
         foreach (KeyCode k in keyCodes) {
-            drawer[i] = new DrawerOption<KeyCode>(()=>keys, "Keys", key => {_selectedKey = key;});
+            drawer[i] = new DrawerOption<KeyCode>(()=>keys, k.ToString(), key => {
+                Debug.Log(p.enumValueIndex);
+                Debug.Log(key);
+                Test();
+                _selectedKey = key;});
             keys[i++] = k;
         }
 

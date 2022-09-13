@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using BigasTools;
 using BigasTools.InputSystem;
+using BigasTools.Rpg;
 public class EntityExample : MonoBehaviour
 {
+    [SerializeField] Drop[] itemDrop;
+    [SerializeField] int roll = 4;
     [SerializeField] Entity entityToSpawn;
     List<Entity> entitysOnExample = new List<Entity>();
+    float lootTableTimer = 0;
     private void Update() {
         if(BGameInput.Instance.GetKeyPress("Interaction")){
             var e = Instantiate(entityToSpawn);
@@ -46,6 +50,18 @@ public class EntityExample : MonoBehaviour
             var rnd = Random.Range(0, entitysOnExample.Count - 1);
 
             entitysOnExample[rnd].Kill();
+        }
+
+        LootTableTest();
+    }
+
+    void LootTableTest(){
+        lootTableTimer += Time.deltaTime;
+        if(lootTableTimer >= 10f){
+            foreach(var i in itemDrop){
+                LootTable.GetDrop(i, roll);
+            }
+            lootTableTimer = 0;
         }
     }
 }

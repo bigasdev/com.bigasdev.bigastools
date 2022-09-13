@@ -88,6 +88,41 @@ public class KeyCodeDrawer : PropertyDrawer
         // Get all the keycodes
         var keyCodes = Enum.GetValues(typeof(KeyCode));
         var keys = new KeyCode[keyCodes.Length];
+        var mostUsedKeys = new KeyCode[21]{
+            KeyCode.Backspace,
+            KeyCode.Tab,
+            KeyCode.Pause,
+            KeyCode.Escape,
+            KeyCode.Space,
+            KeyCode.A,
+            KeyCode.S,
+            KeyCode.D,
+            KeyCode.W,
+            KeyCode.E,
+            KeyCode.I,
+            KeyCode.T,
+            KeyCode.F,
+            KeyCode.M,
+            KeyCode.V,
+            KeyCode.B,
+            KeyCode.Mouse0,
+            KeyCode.Mouse1,
+            KeyCode.LeftShift,
+            KeyCode.LeftAlt,
+            KeyCode.LeftControl
+        };
+        var numberKeys = new KeyCode[10]{
+            KeyCode.Alpha0,
+            KeyCode.Alpha1,
+            KeyCode.Alpha2,
+            KeyCode.Alpha3,
+            KeyCode.Alpha4,
+            KeyCode.Alpha5,
+            KeyCode.Alpha6,
+            KeyCode.Alpha7,
+            KeyCode.Alpha8,
+            KeyCode.Alpha9,
+        };
         var drawer = new DrawerOption[keyCodes.Length];
 
 

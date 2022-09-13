@@ -40,7 +40,6 @@ public class KeyCodeDrawer : PropertyDrawer
         string keyName = Enum.GetName(typeof(KeyCode), propKey);
 
         // Offset the button from the label.
-        position.x += 120f;
         position.width = 80f;
 
         // Display the button that activates the selection window.
@@ -93,6 +92,7 @@ public class KeyCodeDrawer : PropertyDrawer
 
 
 
+
         // Set all the keycode values in the array in order to feed it into the selection window.
         int i = 0;
         foreach (KeyCode k in keyCodes) {
@@ -101,8 +101,9 @@ public class KeyCodeDrawer : PropertyDrawer
                 p.enumValueIndex = 4;}, p, k);
             keys[i++] = k;
         }
+        
 
-        DrawerMenu.ShowWindow(drawer);
+        DrawerMenu.ShowWindow(new Drawer[]{new Drawer("All Keys"), new Drawer("Most Used")}, drawer);
 
         // Display the selection window to pick a keycode.
         /*SelectionWindow.Show(new Tab<KeyCode>(

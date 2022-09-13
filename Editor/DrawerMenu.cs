@@ -9,32 +9,57 @@ using BigasTools.UI;
 namespace BigasTools.Editor{
     public class DrawerMenu : EditorWindow
     {
+        int tab;
         Vector2 scrollPos;   
+        static Drawer[] drawers;
         static DrawerOption[] options;
-        public static void ShowWindow(DrawerOption[] _keys) {
+        public static void ShowWindow(Drawer[] drawer, DrawerOption[] _keys) {
             var window = GetWindow<DrawerMenu>();
             window.titleContent = new GUIContent("Drawer menu");
             window.Show();
             window.minSize = new Vector2(400,180);
             options = _keys;
+            drawers = drawer;
         }
 
         void OnGUI()
         {
-            GUILayout.BeginVertical(EditorStyles.toolbar);
-            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(400), GUILayout.Height(500));
-            for (int i = 0; i < options.Length; i++)
+            var s = new string[drawers.Length];
+            for (int i = 0; i < drawers.Length; i++)
             {
-                options[i].Refresh(i);
-                if(GUILayout.Button(options[i].name, EditorStyles.toolbarButton)){
-                    options[i].onGUI();
-                    options[i].Update();
-                };
-                GUILayout.FlexibleSpace();
+                s[i] = drawers[i].name;
             }
-            GUILayout.EndVertical();
-            GUILayout.EndScrollView();
+            tab = GUILayout.Toolbar(tab, s);
+            switch(tab){
+                case 0:
+                    GUILayout.BeginVertical(EditorStyles.toolbar);
+                    scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(400), GUILayout.Height(500));
+                    for (int i = 0; i < options.Length; i++)
+                    {
+                        options[i].Refresh(i);
+                        if(GUILayout.Button(options[i].name, EditorStyles.toolbarButton)){
+                            options[i].onGUI();
+                            options[i].Update();
+                        };
+                        GUILayout.FlexibleSpace();
+                    }
+                    GUILayout.EndVertical();
+                    GUILayout.EndScrollView();
+                    break;
+                case 1:
+                    Debug.Log("Test");
+                    break;
+            }   
         }
+    }
+    [System.Serializable]
+    public class Drawer{
+        public Drawer(string name)
+        {
+            this.name = name;
+        }
+
+        public string name {set;get;}
     }
     [System.Serializable]
     public abstract class DrawerOption{

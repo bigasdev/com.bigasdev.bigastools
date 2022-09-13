@@ -79,9 +79,6 @@ public class KeyCodeDrawer : PropertyDrawer
 
         EditorGUI.EndProperty();
     }
-    public void Test(){
-    }
-
     // Display a menu to select key codes.
     private void selectKey()
     {

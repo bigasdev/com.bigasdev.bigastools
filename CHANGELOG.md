@@ -1,3 +1,11 @@
+## [1.6.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.0...v1.6.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* added the finished keycode menu + tabs ([77805c7](https://github.com/bigasdev/com.bigasdev.bigastools/commit/77805c79fda7fe30d995bc0b12017274a1380f1f))
+* added the finished keycode menu + tabs ([f50b928](https://github.com/bigasdev/com.bigasdev.bigastools/commit/f50b928816aa719145f793fd77c1a0c313798aeb))
+
 # [1.6.0](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.5.1...v1.6.0) (2022-09-12)
 
 

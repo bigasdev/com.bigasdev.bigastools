@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.1...v1.6.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* Created the loot table + Custom drawer for the drop ([5db2759](https://github.com/bigasdev/com.bigasdev.bigastools/commit/5db275910830f90bc39a2453078c6c87f1022314))
+
 ## [1.6.1](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.0...v1.6.1) (2022-09-13)
 
 

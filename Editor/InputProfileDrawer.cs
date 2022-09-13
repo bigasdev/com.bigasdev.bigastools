@@ -9,6 +9,10 @@ using BigasTools.InputSystem;
 [CustomPropertyDrawer(typeof(InputProfile))]
 public class InputProfileDrawer : PropertyDrawer
 {
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        return base.GetPropertyHeight(property, label);
+    }
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         EditorGUI.BeginProperty(position, label, property);

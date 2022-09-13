@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fafe0fcb32c6904593545c59b3e1c2e, type: 3}
   m_Name: ItemTest
   m_EditorClassIdentifier: 
-  itemName: Item
+  itemName: Boots
   description: Base Description
   quantity: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 36c9a9aa373ab764cb4dba23cdc4c675, type: 3}

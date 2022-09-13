@@ -707,4 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33aa35226c7ef8459c14419ba3f25a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDrop:
+    item: {fileID: 11400000, guid: b27eeae83168bce49ba810731a0200b5, type: 2}
+    chance: 4
+  roll: 12
   entityToSpawn: {fileID: 4739109322253644523, guid: 0a001269a7880c74bb4ce4d03dd45397, type: 3}

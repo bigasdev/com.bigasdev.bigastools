@@ -12,20 +12,23 @@ namespace BigasTools.Editor{
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return base.GetPropertyHeight(property, label) + 150;
+            return base.GetPropertyHeight(property, label) + 75;
         }
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             EditorGUI.BeginProperty(position, label, property);
 
-            var item = new Rect(position.x + 50, position.y, 80, 20);
-            var chance = new Rect(position.x + 50, position.y + 30, 50, 20);
+            var title = new Rect(position.x, position.y - 8, 80, 20);
+            var item = new Rect(position.x + 52, position.y + 10, 80, 20);
+            var chance = new Rect(position.x + 50, position.y + 40, 50, 20);
             var itemName = new Rect(position.x, position.y + 10, 50, 20);
             var itemIcon = new Rect(position.x + 10, position.y + 30, 32, 32);
             var itemChance = new Rect(position.x, position.y + 60, 120, 20);
 
             var indent = EditorGUI.indentLevel;
             EditorGUI.indentLevel = 0;
+
+            EditorGUI.LabelField(title, "DROP!");
     
 
             EditorGUI.PropertyField(item, property.FindPropertyRelative("item"), GUIContent.none);

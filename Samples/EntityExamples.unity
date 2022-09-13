@@ -708,7 +708,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDrop:
-    item: {fileID: 11400000, guid: b27eeae83168bce49ba810731a0200b5, type: 2}
-    chance: 4
+  - item: {fileID: 11400000, guid: b27eeae83168bce49ba810731a0200b5, type: 2}
+    chance: 0
+  - item: {fileID: 11400000, guid: b27eeae83168bce49ba810731a0200b5, type: 2}
+    chance: 0
+  - item: {fileID: 0}
+    chance: 0
   roll: 12
   entityToSpawn: {fileID: 4739109322253644523, guid: 0a001269a7880c74bb4ce4d03dd45397, type: 3}

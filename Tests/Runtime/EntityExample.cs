@@ -6,7 +6,7 @@ using BigasTools.InputSystem;
 using BigasTools.Rpg;
 public class EntityExample : MonoBehaviour
 {
-    [SerializeField] Drop itemDrop;
+    [SerializeField] Drop[] itemDrop;
     [SerializeField] int roll = 4;
     [SerializeField] Entity entityToSpawn;
     List<Entity> entitysOnExample = new List<Entity>();
@@ -17,7 +17,7 @@ public class EntityExample : MonoBehaviour
             e.onDispose += () =>{
                 entitysOnExample.Remove(e);
             };
-            LootTable.GetDrop(itemDrop, roll);
+            LootTable.GetDrop(itemDrop[0], roll);
             entitysOnExample.Add(e);
         }
         if(BGameInput.Instance.GetKeyPress("Example")){

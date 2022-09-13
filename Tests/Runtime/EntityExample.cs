@@ -10,6 +10,7 @@ public class EntityExample : MonoBehaviour
     [SerializeField] int roll = 4;
     [SerializeField] Entity entityToSpawn;
     List<Entity> entitysOnExample = new List<Entity>();
+    float lootTableTimer = 0;
     private void Update() {
         if(BGameInput.Instance.GetKeyPress("Interaction")){
             var e = Instantiate(entityToSpawn);
@@ -17,7 +18,6 @@ public class EntityExample : MonoBehaviour
             e.onDispose += () =>{
                 entitysOnExample.Remove(e);
             };
-            LootTable.GetDrop(itemDrop[0], roll);
             entitysOnExample.Add(e);
         }
         if(BGameInput.Instance.GetKeyPress("Example")){
@@ -50,6 +50,18 @@ public class EntityExample : MonoBehaviour
             var rnd = Random.Range(0, entitysOnExample.Count - 1);
 
             entitysOnExample[rnd].Kill();
+        }
+
+        LootTableTest();
+    }
+
+    void LootTableTest(){
+        lootTableTimer += Time.deltaTime;
+        if(lootTableTimer >= 10f){
+            foreach(var i in itemDrop){
+                LootTable.GetDrop(i, roll);
+            }
+            lootTableTimer = 0;
         }
     }
 }

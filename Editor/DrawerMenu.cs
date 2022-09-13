@@ -13,13 +13,17 @@ namespace BigasTools.Editor{
         Vector2 scrollPos;   
         static Drawer[] drawers;
         static DrawerOption[] options;
-        public static void ShowWindow(Drawer[] drawer, DrawerOption[] _keys) {
+        static DrawerOption[] mostUsedKeys;
+        static DrawerOption[] numbers;
+        public static void ShowWindow(Drawer[] drawer, DrawerOption[] _keys, DrawerOption[] _mostUsedKeys, DrawerOption[] _numbers) {
             var window = GetWindow<DrawerMenu>();
             window.titleContent = new GUIContent("Drawer menu");
             window.Show();
             window.minSize = new Vector2(400,180);
             options = _keys;
             drawers = drawer;
+            mostUsedKeys = _mostUsedKeys;
+            numbers = _numbers;
         }
 
         void OnGUI()
@@ -30,26 +34,30 @@ namespace BigasTools.Editor{
                 s[i] = drawers[i].name;
             }
             tab = GUILayout.Toolbar(tab, s);
-            switch(tab){
-                case 0:
-                    GUILayout.BeginVertical(EditorStyles.toolbar);
-                    scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(400), GUILayout.Height(500));
-                    for (int i = 0; i < options.Length; i++)
-                    {
-                        options[i].Refresh(i);
-                        if(GUILayout.Button(options[i].name, EditorStyles.toolbarButton)){
-                            options[i].onGUI();
-                            options[i].Update();
-                        };
-                        GUILayout.FlexibleSpace();
-                    }
-                    GUILayout.EndVertical();
-                    GUILayout.EndScrollView();
-                    break;
-                case 1:
-                    Debug.Log("Test");
-                    break;
-            }   
+            Draw(tab);
+        }
+
+        void Draw(int r){
+            var groups = new List<DrawerOption[]>();
+            groups.Add(options);
+            groups.Add(mostUsedKeys);
+            groups.Add(numbers);
+
+            var o = groups[r];
+
+            GUILayout.BeginVertical(EditorStyles.toolbar);
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(400), GUILayout.Height(500));
+            for (int i = 0; i < o.Length; i++)
+                {
+                    o[i].Refresh(i);
+                    if(GUILayout.Button(o[i].name, EditorStyles.toolbarButton)){
+                        o[i].onGUI();
+                        o[i].Update();
+                    };
+                    GUILayout.FlexibleSpace();
+                }
+            GUILayout.EndVertical();
+            GUILayout.EndScrollView();
         }
     }
     [System.Serializable]

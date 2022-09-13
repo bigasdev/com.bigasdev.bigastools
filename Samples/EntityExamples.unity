@@ -638,7 +638,7 @@ MonoBehaviour:
   inputData:
     profile:
     - inputName: Interaction
-      inputKey: 42
+      inputKey: 51
       joystickKey: 0
     - inputName: Pause
       inputKey: 279

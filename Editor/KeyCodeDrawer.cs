@@ -124,6 +124,8 @@ public class KeyCodeDrawer : PropertyDrawer
             KeyCode.Alpha9,
         };
         var drawer = new DrawerOption[keyCodes.Length];
+        var drawerUsedKeys = new DrawerOption[mostUsedKeys.Length];
+        var drawerNumbers = new DrawerOption[numberKeys.Length];
 
 
 
@@ -136,9 +138,25 @@ public class KeyCodeDrawer : PropertyDrawer
                 p.enumValueIndex = 4;}, p, k);
             keys[i++] = k;
         }
+
+        int ii = 0;
+        foreach(KeyCode k in mostUsedKeys){
+            drawerUsedKeys[ii] = new DrawerOption<KeyCode>(()=>mostUsedKeys, k.ToString(), key => {
+
+            }, p, k);
+            ii++;
+        }
+
+        int iii = 0;
+        foreach(KeyCode k in numberKeys){
+            drawerNumbers[iii] = new DrawerOption<KeyCode>(()=>numberKeys, k.ToString(), key => {
+
+            }, p, k);
+            iii++;
+        }
         
 
-        DrawerMenu.ShowWindow(new Drawer[]{new Drawer("All Keys"), new Drawer("Most Used")}, drawer);
+        DrawerMenu.ShowWindow(new Drawer[]{new Drawer("All Keys"), new Drawer("Most Used"), new Drawer("Numbers")}, drawer, drawerUsedKeys, drawerNumbers);
 
         // Display the selection window to pick a keycode.
         /*SelectionWindow.Show(new Tab<KeyCode>(

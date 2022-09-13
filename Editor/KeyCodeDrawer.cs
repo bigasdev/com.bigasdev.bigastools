@@ -40,7 +40,6 @@ public class KeyCodeDrawer : PropertyDrawer
         string keyName = Enum.GetName(typeof(KeyCode), propKey);
 
         // Offset the button from the label.
-        position.x += 120f;
         position.width = 80f;
 
         // Display the button that activates the selection window.
@@ -89,7 +88,45 @@ public class KeyCodeDrawer : PropertyDrawer
         // Get all the keycodes
         var keyCodes = Enum.GetValues(typeof(KeyCode));
         var keys = new KeyCode[keyCodes.Length];
+        var mostUsedKeys = new KeyCode[21]{
+            KeyCode.Backspace,
+            KeyCode.Tab,
+            KeyCode.Pause,
+            KeyCode.Escape,
+            KeyCode.Space,
+            KeyCode.A,
+            KeyCode.S,
+            KeyCode.D,
+            KeyCode.W,
+            KeyCode.E,
+            KeyCode.I,
+            KeyCode.T,
+            KeyCode.F,
+            KeyCode.M,
+            KeyCode.V,
+            KeyCode.B,
+            KeyCode.Mouse0,
+            KeyCode.Mouse1,
+            KeyCode.LeftShift,
+            KeyCode.LeftAlt,
+            KeyCode.LeftControl
+        };
+        var numberKeys = new KeyCode[10]{
+            KeyCode.Alpha0,
+            KeyCode.Alpha1,
+            KeyCode.Alpha2,
+            KeyCode.Alpha3,
+            KeyCode.Alpha4,
+            KeyCode.Alpha5,
+            KeyCode.Alpha6,
+            KeyCode.Alpha7,
+            KeyCode.Alpha8,
+            KeyCode.Alpha9,
+        };
         var drawer = new DrawerOption[keyCodes.Length];
+        var drawerUsedKeys = new DrawerOption[mostUsedKeys.Length];
+        var drawerNumbers = new DrawerOption[numberKeys.Length];
+
 
 
 
@@ -102,7 +139,24 @@ public class KeyCodeDrawer : PropertyDrawer
             keys[i++] = k;
         }
 
-        DrawerMenu.ShowWindow(drawer);
+        int ii = 0;
+        foreach(KeyCode k in mostUsedKeys){
+            drawerUsedKeys[ii] = new DrawerOption<KeyCode>(()=>mostUsedKeys, k.ToString(), key => {
+
+            }, p, k);
+            ii++;
+        }
+
+        int iii = 0;
+        foreach(KeyCode k in numberKeys){
+            drawerNumbers[iii] = new DrawerOption<KeyCode>(()=>numberKeys, k.ToString(), key => {
+
+            }, p, k);
+            iii++;
+        }
+        
+
+        DrawerMenu.ShowWindow(new Drawer[]{new Drawer("All Keys"), new Drawer("Most Used"), new Drawer("Numbers")}, drawer, drawerUsedKeys, drawerNumbers);
 
         // Display the selection window to pick a keycode.
         /*SelectionWindow.Show(new Tab<KeyCode>(

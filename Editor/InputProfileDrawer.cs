@@ -14,9 +14,9 @@ public class InputProfileDrawer : PropertyDrawer
         EditorGUI.BeginProperty(position, label, property);
 
         var title = new Rect(position.x, position.y, position.width - 50, position.height);
-        var name = new Rect(position.x, position.y, position.width - 350, position.height);
-        var key = new Rect(position.x - 25, position.y, position.width, position.height);
-        var joyKey = new Rect(position.x + 180, position.y, position.width - 350, position.height);
+        var name = new Rect(position.x, position.y, 75, position.height);
+        var key = new Rect(position.x + 85, position.y, position.width, position.height);
+        var joyKey = new Rect(position.x + 170, position.y, 75, position.height);
 
         //EditorGUI.PrefixLabel(title, GUIUtility.GetControlID(FocusType.Passive), label);
 

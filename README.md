@@ -14,7 +14,7 @@ The tools i usually use for all of my game development with unity.
  - A powerful timer class
  - Controllers for audio and resources
  - A powerful state controller
- - Tag system 
+ - Tags system 
  - A pool system
 
 # Doc

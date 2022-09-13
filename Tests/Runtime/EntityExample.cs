@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using BigasTools;
 using BigasTools.InputSystem;
+using BigasTools.Rpg;
 public class EntityExample : MonoBehaviour
 {
+    [SerializeField] Drop itemDrop;
+    [SerializeField] int roll = 4;
     [SerializeField] Entity entityToSpawn;
     List<Entity> entitysOnExample = new List<Entity>();
     private void Update() {
@@ -14,6 +17,7 @@ public class EntityExample : MonoBehaviour
             e.onDispose += () =>{
                 entitysOnExample.Remove(e);
             };
+            LootTable.GetDrop(itemDrop, roll);
             entitysOnExample.Add(e);
         }
         if(BGameInput.Instance.GetKeyPress("Example")){

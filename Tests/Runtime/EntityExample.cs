@@ -11,6 +11,11 @@ public class EntityExample : MonoBehaviour
     [SerializeField] Entity entityToSpawn;
     List<Entity> entitysOnExample = new List<Entity>();
     float lootTableTimer = 0;
+    private void Start() {
+        CameraManager.Instance.OnTargetChange.AddListener((target)=>{
+            Debug.Log(target);
+        });
+    }
     private void Update() {
         if(BGameInput.Instance.GetKeyPress("Interaction")){
             var e = Instantiate(entityToSpawn);
@@ -18,6 +23,7 @@ public class EntityExample : MonoBehaviour
             e.onDispose += () =>{
                 entitysOnExample.Remove(e);
             };
+            CameraManager.Instance.SetTarget(e.transform, false, false, $"Changing to {e}");
             entitysOnExample.Add(e);
         }
         if(BGameInput.Instance.GetKeyPress("Example")){

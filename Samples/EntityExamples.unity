@@ -480,9 +480,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a9fe62ea8839d4ea3c402ba4ea2ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  OnTargetChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnZoom:
+    m_PersistentCalls:
+      m_Calls: []
+  debug: 1
+  cameraHolder: {fileID: 1175543324}
   currentCamera: {fileID: 1696512266}
-  followSpeed: 0
+  followSpeed: 4
   offset: {x: 0, y: 0, z: 0}
   hasXLocked: 0
   hasYLocked: 0

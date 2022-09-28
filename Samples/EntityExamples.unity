@@ -487,12 +487,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   debug: 1
+  workOn: 1
   cameraHolder: {fileID: 1175543324}
   currentCamera: {fileID: 1696512266}
   followSpeed: 4
   offset: {x: 0, y: 0, z: 0}
   hasXLocked: 0
   hasYLocked: 0
+  zoomSpeed: 4
 --- !u!1 &1742347587
 GameObject:
   m_ObjectHideFlags: 0

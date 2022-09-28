@@ -29,6 +29,8 @@ public class EntityExample : MonoBehaviour
         if(BGameInput.Instance.GetKeyPress("Example")){
             var rnd = Random.Range(0, entitysOnExample.Count - 1);
 
+            CameraManager.Instance.SetZoom(2, 4, "I want");
+
             entitysOnExample[rnd].MoveTo(new Vector2(1,0));
         }
         if(BGameInput.Instance.GetKeyPress("Example1")){

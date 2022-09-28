@@ -38,7 +38,16 @@ namespace BigasTools{
                 target = value;
             }
         }
+#endregion 
+#region zoom-variables
+        [Header("Zoom settings")]
+        [SerializeField] protected float zoomSpeed = 4f;
+        protected float originalCameraSize;
+        protected float zoomFactor;
 #endregion
+        /// <summary>
+        /// This region will be focused on the basic camera functions as well as the workflow of it.
+        /// </summary>
         private void Awake() {
             OnAwake();
         }
@@ -62,6 +71,7 @@ namespace BigasTools{
         }
         protected virtual void Work(){
             FollowTarget();
+            HandleZoom();
         }
         protected virtual void FollowTarget(){
             if(Target == null)return;
@@ -79,13 +89,26 @@ namespace BigasTools{
             }
             this.transform.position = new Vector3(xNew, yNew, transform.position.z);
         }
+        protected virtual void HandleZoom(){
+            float targetSize = originalCameraSize - zoomFactor;
+            if(targetSize != currentCamera.orthographicSize){
+                currentCamera.orthographicSize = Mathf.Lerp(currentCamera.orthographicSize, targetSize, Time.deltaTime * zoomSpeed);
+            }
+        }
 #region publicfunctions
+        //Region for every function that will be called from other scripts.
         public virtual void SetTarget(Transform target, bool xLocked = false, bool yLocked = false, string reason = ""){
             if(debug)BDebug.Log($"Camera is now following: {target}, {reason}", "Camera", Color.green);
             Target = target;
             hasXLocked = xLocked;
             hasYLocked = yLocked;
             OnTargetChange.Invoke(target);
+        }
+        public virtual void SetZoom(float zoomAmount, float zoomSpeed = 4f, string reason=""){
+            if(debug)BDebug.Log($"Camera is now zooming: {zoomAmount}, {reason}", "Camera", Color.green);
+            zoomFactor = zoomAmount;
+            this.zoomSpeed = zoomSpeed;
+            OnZoom.Invoke(zoomAmount);
         }
 #endregion
     }

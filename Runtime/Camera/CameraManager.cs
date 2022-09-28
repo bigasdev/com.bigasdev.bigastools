@@ -22,6 +22,7 @@ namespace BigasTools{
         [SerializeField] bool debug;
         
         [Header("Camera settings")]
+        [SerializeField] Updates workOn = Updates.LATE;
         [SerializeField] Transform cameraHolder;
         [SerializeField] Camera currentCamera;
         [SerializeField] float followSpeed = 4f;
@@ -39,12 +40,30 @@ namespace BigasTools{
         }
 #endregion
         private void Awake() {
+            OnAwake();
+        }
+        protected virtual void OnAwake(){
             if(debug)BDebug.Log($"Starting camera at position: {this.transform.position}", "Camera", Color.green);
         }
+        private void Update() {
+            if(workOn == Updates.UPDATE){
+                Work();
+            }
+        }
+        private void FixedUpdate() {
+            if(workOn == Updates.FIXED){
+                Work();
+            }
+        }
         private void LateUpdate() {
+            if(workOn == Updates.LATE){
+                Work();
+            }
+        }
+        protected virtual void Work(){
             FollowTarget();
         }
-        void FollowTarget(){
+        protected virtual void FollowTarget(){
             if(Target == null)return;
             float xTarget = Target.position.x + offset.x;
             float yTarget = Target.position.y + offset.y;
@@ -61,7 +80,7 @@ namespace BigasTools{
             this.transform.position = new Vector3(xNew, yNew, transform.position.z);
         }
 #region publicfunctions
-        public void SetTarget(Transform target, bool xLocked = false, bool yLocked = false, string reason = ""){
+        public virtual void SetTarget(Transform target, bool xLocked = false, bool yLocked = false, string reason = ""){
             if(debug)BDebug.Log($"Camera is now following: {target}, {reason}", "Camera", Color.green);
             Target = target;
             hasXLocked = xLocked;
@@ -69,5 +88,10 @@ namespace BigasTools{
             OnTargetChange.Invoke(target);
         }
 #endregion
+    }
+    public enum Updates{
+        UPDATE,
+        FIXED,
+        LATE
     }
 }

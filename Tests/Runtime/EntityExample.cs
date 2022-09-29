@@ -15,6 +15,9 @@ public class EntityExample : MonoBehaviour
         CameraManager.Instance.OnTargetChange.AddListener((target)=>{
             Debug.Log(target);
         });
+        CameraManager.Instance.OnCameraShake.AddListener((d,m)=>{
+            Debug.Log(d+m);
+        });
     }
     private void Update() {
         if(BGameInput.Instance.GetKeyPress("Interaction")){
@@ -29,7 +32,7 @@ public class EntityExample : MonoBehaviour
         if(BGameInput.Instance.GetKeyPress("Example")){
             var rnd = Random.Range(0, entitysOnExample.Count - 1);
 
-            CameraManager.Instance.SetZoom(2, 4, "I want");
+            CameraManager.Instance.SetShake(.5f, 1.5f, "Testing the zoom!");
 
             entitysOnExample[rnd].MoveTo(new Vector2(1,0));
         }

@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.2...v1.6.3) (2022-09-29)
+
+
+### Bug Fixes
+
+* Created the first version of the camera manager ([70032f8](https://github.com/bigasdev/com.bigasdev.bigastools/commit/70032f854a70ddc12c712f8d096f1f7cd9c0268d))
+
 ## [1.6.2](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.1...v1.6.2) (2022-09-13)
 
 

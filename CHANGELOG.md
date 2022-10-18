@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.3...v1.6.4) (2022-10-18)
+
+
+### Bug Fixes
+
+* TagQuery fix ([da7788f](https://github.com/bigasdev/com.bigasdev.bigastools/commit/da7788ffe7b5c65d9dcbff2fb355c3b0f60f4c0c))
+
 ## [1.6.3](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.2...v1.6.3) (2022-09-29)
 
 

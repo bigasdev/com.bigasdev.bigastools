@@ -19,7 +19,14 @@ namespace BigasTools{
             }else{
                 var o = Object.FindObjectsOfType<Tag>();
                 foreach(var g in o){
-                    cachedObjects.Add(g.tagName, g.gameObject);
+                    try
+                    {
+                        cachedObjects.Add(g.tagName, g.gameObject);
+                    }
+                    catch (System.Exception e)
+                    {
+                        Debug.Log(e);
+                    }
                     if(g.tagName == name)return g.gameObject;
                 }
             }

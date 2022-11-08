@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.4...v1.6.5) (2022-11-08)
+
+
+### Bug Fixes
+
+* Timer changes ([e9c15a7](https://github.com/bigasdev/com.bigasdev.bigastools/commit/e9c15a733b5c1474b262af58146390111de90c96))
+
 ## [1.6.4](https://github.com/bigasdev/com.bigasdev.bigastools/compare/v1.6.3...v1.6.4) (2022-10-18)
 
 

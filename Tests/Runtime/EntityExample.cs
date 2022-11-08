@@ -11,6 +11,7 @@ public class EntityExample : MonoBehaviour
     [SerializeField] Entity entityToSpawn;
     List<Entity> entitysOnExample = new List<Entity>();
     float lootTableTimer = 0;
+    Timer timerTest, repeatTimerTest, noActionTimerTest;
     private void Start() {
         CameraManager.Instance.OnTargetChange.AddListener((target)=>{
             Debug.Log(target);
@@ -18,8 +19,22 @@ public class EntityExample : MonoBehaviour
         CameraManager.Instance.OnCameraShake.AddListener((d,m)=>{
             Debug.Log(d+m);
         });
+
+        timerTest = new Timer(2f, false, ()=>{
+            Debug.Log("Test!!");
+        });
+
+        repeatTimerTest = new Timer(1f, true, ()=>{
+            Debug.Log("Repeating");
+        });
+
+        noActionTimerTest = new Timer(2f, true);
     }
     private void Update() {
+        timerTest.Update();
+        repeatTimerTest.Update();
+        noActionTimerTest.Update();
+
         if(BGameInput.Instance.GetKeyPress("Interaction")){
             var e = Instantiate(entityToSpawn);
             e.transform.position = new Vector2(Random.Range(-13, 13), Random.Range(-8, 8));

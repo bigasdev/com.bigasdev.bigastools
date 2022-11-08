@@ -17,17 +17,18 @@ namespace BigasTools{
             get { return elapsed >= setTime; }
         }
         
-        public float reverseElaped{
+        public float reverseElapsed{
             get {return setTime - elapsed; }
         }
 
-        public Timer(float _set, bool looping = false) {
+        public Timer(float _set, bool looping = false, Action _complete = null) {
             setTime = _set;
             this.looping = looping;
+            if(_complete != null)OnComplete += _complete;
         }
 
         public void Update() {
-            if(paused)return;
+            if(paused || complete)return;
             elapsed += Time.deltaTime;
 
             if (elapsed >= setTime) {
